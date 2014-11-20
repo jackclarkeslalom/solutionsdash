@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # generic (system) files/extensions we don't want
 *.seed
 *.log
@@ -16,3 +17,14 @@ results
 node_modules
 
 bower_components
+=======
+.DS_Store
+.nodemonignore
+.sass-cache/
+npm-debug.log
+node_modules/
+public/lib
+app/tests/coverage/
+.bower-*/
+.idea/
+>>>>>>> gh-pages

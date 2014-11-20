@@ -1,0 +1,19 @@
+<section data-ng-controller="WorklogController" data-ng-init="worklogDataCall()">
+    <h1 mean-token="'home-default'">{{displayName}}</h1>
+    <h2>{{sprintName}}</h2>
+    <h4>Sprint Opened: {{startDate}}</h4>
+    <h4>Sprint Closes: {{endDate}}</h4>
+    <!--<button ng-click="worklogData.doClick(item, $event)">Send AJAX Request</button>-->
+    <br/>
+    <ul>
+        <li ng-repeat="worklogItem in worklogData.worklog">
+            {{worklogItem.key}} - {{worklogItem.summary}}
+            <ul>
+                <li ng-repeat="entry in worklogItem.entries">
+                    {{entry.authorFullName}} spent: {{entry.timeSpent/3600| number:0}} hours, dateLogged: {{entry.updated| date:"EEEE MM/dd/yyyy 'at' h:mma"}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <worklog-chart></worklog-chart>
+</section>
