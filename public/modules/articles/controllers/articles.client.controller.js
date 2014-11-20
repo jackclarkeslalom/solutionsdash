@@ -40,10 +40,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 
 			article.$update(function() {
 				$location.path('articles/' + article._id);
-<<<<<<< HEAD
-=======
 				$location.path('articles/' + article._id);
->>>>>>> gh-pages
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -59,8 +56,4 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			});
 		};
 	}
-<<<<<<< HEAD
 ]);
-=======
-]);
->>>>>>> gh-pages
