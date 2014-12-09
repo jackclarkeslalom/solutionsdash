@@ -1,14 +1,23 @@
 'use strict';
 
-//Articles service used for communicating with the articles REST endpoints
-angular.module('worklog').factory('UserWorklog', ['$resource',
+angular.module('worklog').factory('WorklogService', ['$resource',
 	function($resource) {
-		return $resource('/worklog/user/:targetUser/:startDate/:endDate', {
-
-		}, {
-			update: {
-				method: 'PUT'
-			}
-		});
+		return {
+			userWorklog : $resource('/worklog/user/:targetUser/:startDate/:endDate', {
+				targetUser:'@targetUser',
+				startDate: '@startDate',
+				endDate: '@endDate'
+			}),
+			groupWorklog : $resource('/worklog/group/:targetGroup/:startDate/:endDate', {
+				targetGroup:'@targetGroup',
+				startDate: '@startDate',
+				endDate: '@endDate'
+			}),
+			userlog : $resource('/userlog/:targetUser',{
+				targetUser:'@targetUser'
+			}),
+			workboard : $resource('/current-sprint'),
+			search : $resource('/search')
+		};
 	}
 ]);

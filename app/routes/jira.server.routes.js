@@ -9,7 +9,7 @@ module.exports = function(app) {
       .get(jiraService.userWorklog);
 
 // Get group worklog items
-  app.route('/worklog/group/:targetGroup')
+  app.route('/worklog/group/:targetGroup/:startDate/:endDate')
       .get(jiraService.groupWorklog);
 
 // Get userlog (account information)

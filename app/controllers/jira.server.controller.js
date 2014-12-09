@@ -26,7 +26,7 @@
                   console.log('Logging targetUser worklog service error to console:' + error);
                   return;
               }
-              console.log(issues);
+              console.log('Successful targetUser service connection');
               res.json(issues);
           });
       };
@@ -34,7 +34,9 @@
 // Search for group worklog items
   exports.groupWorklog = function(req, res, next){
           var targetGroup = req.param('targetGroup');
-          var searchString = 'targetGroup=' + targetGroup;
+          var startDate = req.param('startDate');
+          var endDate = req.param('endDate');
+          var searchString = 'targetGroup=' + targetGroup + '&startDate=' + startDate + '&endDate=' + endDate;
           var jira = new JiraApi('https', config.host, config.port, config.user, config.password, '2');
 
           jira.searchWorklog(searchString,function(error, issues) {
@@ -42,7 +44,7 @@
                   console.log('Logging targetGroup worklog service error to console:' + error);
                   return;
               }
-              console.log(issues);
+              console.log('Successful targetGroup service connection');
               res.json(issues);
           });
 
@@ -58,7 +60,7 @@
                   console.log('Logging userlog service error to console:' + error);
                   return;
               }
-              console.log(user);
+              console.log('Successful userlog service connection');
               res.json(user);
           });
       };
@@ -74,7 +76,7 @@
                   console.log(jira.findWorkBoard.request);
                   return;
               }
-              console.log(rapidViews);
+              console.log('Successful findWorkboard service connection');
               res.json(rapidViews);
           });
       };
@@ -89,7 +91,7 @@
                   console.log('Logging searchJira error to console:' + error);
                   return;
               }
-              console.log(issues);
+              console.log('Successful searchJira service connection');
               res.json(issues);
           });
       };
